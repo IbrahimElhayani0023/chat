@@ -13,12 +13,20 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
+        minlength: 6,
         required: true,
     },
-
+    gender: {
+        type: String,
+        required: true,
+        enum:["male","female"],
+    },
+    thamb: {
+        type: String,
+        default: "",
+    },
 },
     { timestamps: true });
 
-
-
-export const User = mongoose.model("User", userSchema);
+ const User = mongoose.model("User", userSchema);
+export default User;
